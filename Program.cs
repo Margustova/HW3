@@ -86,34 +86,48 @@
 
 /* Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B. */
 
-int DegreeNums(int num1, int num2)
-{
-    int degree = num1 ; //объявляем переменную, хранилище для промежуточного результата num1=2 num2 =3
-    int current = 2 ;
-    if (num2 >= 1) // проверка, что число положительное, в противном случае выводим -1
-    {
-        while (current <= num2) //0< 3
-        {
-            degree *= num1; // 2*2
-            current++;
-        }
-        return degree;
-    }
-    else 
-        return -1;     
-}
-Console.Write("Input a num1: ");
-int num1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input a num2: ");
-int num2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine($" The degree {num1} of  {num2} is {DegreeNums(num1, num2)}");
+// int DegreeNums(int num1, int num2)
+// {
+//     int degree = num1 ; //объявляем переменную, хранилище для промежуточного результата num1=2 num2 =3
+//     int current = 2 ;
+//     if (num2 >= 1) // проверка, что число положительное, в противном случае выводим -1
+//     {
+//         while (current <= num2) //0< 3
+//         {
+//             degree *= num1; // 2*2
+//             current++;
+//         }
+//         return degree;
+//     }
+//     else 
+//         return -1;     
+// }
+// Console.Write("Input a num1: ");
+// int num1 = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a num2: ");
+// int num2 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine($" The degree {num1} of  {num2} is {DegreeNums(num1, num2)}");
 
 /* Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе. */
-// int SumDigit(int number)
-// {
-//     int sum = 0; // переменная отвечает за сумму
-//     int a = 0; // переменная хранит первую цифру числа
-//     int b = 0; // переменная хранит вторую цифру числа
-//     a = number / 10; // получаем первую цифру числа
-
-
+int SumDigit(int number)
+{
+    int sum = 0; // переменная отвечает за сумму
+    int a = 0; // запись последней цифры
+    while (number > 10)
+    {
+        a = number % 10; // получаем последнюю цифру числа
+        sum += a; // прибавляем каждый раз последнюю цифру (остаток)  
+        number = number / 10;   
+    } 
+    
+        if (number < 10)
+            {
+                sum = sum + number;
+            }
+      
+    return sum;
+    
+}
+Console.Write("Input a number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"The sum of digit of number {num} is {SumDigit(num)}");
