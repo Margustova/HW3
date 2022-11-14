@@ -138,36 +138,36 @@
 
 6, 1, 33 -> [6, 1, 33] */
 
-int[] CreateArray(int size)
-{ 
-    int[] array = new int[size]; // выделяем память под массив- надо запомнить, имя массива (array), тип массива int, размер массива size
-    Console.Write("Введите массив ");
+// int[] CreateArray(int size)
+// { 
+//     int[] array = new int[size]; // выделяем память под массив- надо запомнить, имя массива (array), тип массива int, размер массива size
+//     Console.Write("Введите массив ");
 
-    for(int i = 0; i < size; i++) //  при работе с массивом, это всегда цикл, i- индекс
-        array[i] = Convert.ToInt32(Console.ReadLine());
+//     for(int i = 0; i < size; i++) //  при работе с массивом, это всегда цикл, i- индекс
+//         array[i] = Convert.ToInt32(Console.ReadLine());
 
-    return array; // возвращаем массив, пишем только его имя!
-}
- void SetArray(int[] array) // войдовский метод будем вызывать массив
- {
-    Console.Write("Array is: "); // красивая финтифлюшка для вывода массива
+//     return array; // возвращаем массив, пишем только его имя!
+// }
+//  void SetArray(int[] array) // войдовский метод будем вызывать массив
+//  {
+//     Console.Write("Array is: "); // красивая финтифлюшка для вывода массива
     
-    for (int i =0; i < array.Length; i++) // обращаемся к длине массива
-        Console.Write(array[i] + " ");
+//     for (int i =0; i < array.Length; i++) // обращаемся к длине массива
+//         Console.Write(array[i] + " ");
 
- }
+//  }
  
-Console.Write("Input a size of elements: ");
-int m = Convert.ToInt32(Console.ReadLine());
-int[] myArray = CreateArray(m);
-SetArray(myArray);
+// Console.Write("Input a size of elements: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// int[] myArray = CreateArray(m);
+// SetArray(myArray);
 
 // // Семинар 5 
-// /*Задайте массив из 12 элементов, заполненный случайными числами из промежутка [-9, 9]. Найдите сумму отрицательных элементов массива.*/
+// Задайте массив из 12 элементов, заполненный случайными числами из промежутка [-9, 9]. Найдите сумму отрицательных элементов массива.
 // int[] CreateRandomArray(int size, int minValue, int maxValue) // метод создает рандомный массив , размер массива, максимальное значение и минимальное
 // {
 //     int[] array = new int[size]; // выделяем память под массив- надо запомнить, имя массива (array), тип массива int, размер массива size
-    
+
 //     for(int i = 0; i < size; i++) //  при работе с массивом, это всегда цикл, i- индекс
 //         array[i] = new Random().Next(minValue, maxValue + 1);
 
@@ -210,6 +210,97 @@ SetArray(myArray);
 
 /*Задайте массив. Напишите программу, которая определяет, присутствует ли заданное число в массиве. */
 
+int[] CreateRandomArray(int size, int minValue, int maxValue) // метод создает рандомный массив , размер массива, максимальное значение и минимальное
+{
+    int[] array = new int[size]; // выделяем память под массив- надо запомнить, имя массива (array), тип массива int, размер массива size
+
+    for(int i = 0; i < size; i++) //  при работе с массивом, это всегда цикл, i- индекс
+        array[i] = new Random().Next(minValue, maxValue + 1);
+
+    return array; // возвращаем массив, пишем только его имя!
+
+}
+ void ShowArray(int[] array) // войтовский метод будем вызывать массив
+ {
+    Console.Write("Array is: "); // красивая финтифлюшка для вывода массива
+    
+    for (int i =0; i < array.Length; i++) // обращаемся к длине массива
+        Console.Write(array[i] + " ");
+
+    Console.WriteLine(" ;) \n"); // \n  переход на новую строку
+ }                
+
+// bool FindNum(int[] array, int num)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] == num)
+//         {
+//             return true;
+//         }
+
+
+//     }
+//     return false;
+// }
+// Console.WriteLine("ВВедите число:");
+// int num = Convert.ToInt32(Console.ReadLine());
+// int[] array = CreateRandomArray(5, 1, 99);
+// ShowArray(array);
+// Console.WriteLine(FindNum(array, num));
+
 // Задайте одномерный массив из m случайных чисел. Найдите количество элементов массива, значения которых лежат в отрезке [a,b].
 
+// int FindElements( int[] array, int min, int max)
+// {
+//     int count = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] >= min && array[i] <= max)
+        
+//             count++;
+
+//     }
+//     return count;
+// }
+// Console.WriteLine("Введите размер массива: ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите min:");
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите max:");
+// int max = Convert.ToInt32(Console.ReadLine());
+// int[] array = CreateRandomArray(size, 1, 10);
+// ShowArray(array);
+// Console.WriteLine(FindElements(array, min, max));
+
 //Напишите программу замена элементов массива: положительные элементы замените на соответствующие отрицательные, и наоборот. 
+//  void F(int[] a) //метод принимает на вход весь массив
+//  {
+//     a[0] +=5; //увеличиваем нулевой элемен на 5 и сразу выводим на экран
+//     Console.WriteLine(a[0]);
+//      }
+
+// int[] num = {5, 6, 4};
+// F(num);
+// Console.WriteLine(num[0]); // переменные массива всегда ссылочный тип
+
+// /*теперь решаем задачу выше: Напишите программу замена элементов массива: положительные элементы замените на соответствующие
+//  отрицательные, и наоборот */ 
+
+//  void SetOppositeArray(int[] array)
+//  {
+//     for(int i = 0; i < array.Length; i++)
+//         {
+//             array[i] *= -1; // меняем знак на противоположный
+//         }
+//  }      
+// Console.WriteLine("Input a number of elements: "); // введите размер массива
+// int size = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a min possible value:"); 
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a max possible value:");
+// int max = Convert.ToInt32(Console.ReadLine());
+// int[] myArray = CreateRandomArray(size, min, max);
+// ShowArray(myArray);
+// SetOppositeArray(myArray);
+// ShowArray(myArray);
