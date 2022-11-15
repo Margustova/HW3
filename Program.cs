@@ -218,17 +218,17 @@
 //         array[i] = new Random().Next(minValue, maxValue + 1);
 
 //     return array; // возвращаем массив, пишем только его имя!
-
 // }
- void ShowArray(int[] array) // войтовский метод будем вызывать массив
- {
-    Console.Write("Array is: "); // красивая финтифлюшка для вывода массива
+// }
+//  void ShowArray(int[] array) // войтовский метод будем вызывать массив
+//  {
+//     Console.Write("Array is: "); // красивая финтифлюшка для вывода массива
     
-    for (int i =0; i < array.Length; i++) // обращаемся к длине массива
-        Console.Write(array[i] + " ");
+//     for (int i =0; i < array.Length; i++) // обращаемся к длине массива
+//         Console.Write(array[i] + " ");
 
-    Console.WriteLine("  \n"); // \n  переход на новую строку
- }                
+//     Console.WriteLine("  \n"); // \n  переход на новую строку
+//  }                
 
 // bool FindNum(int[] array, int num)
 // {
@@ -304,44 +304,45 @@
 // ShowArray(myArray);
 // SetOppositeArray(myArray);
 // ShowArray(myArray);
+
 //  HW 5 
 //  Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных
 // чисел в массиве.
 
 // [345, 897, 568, 234] -> 2
 
-int[] CreateRandomArray(int size, int minValue, int maxValue) // метод создает рандомный массив , размер массива, максимальное значение и минимальное
-{
-    int[] array = new int[size]; // выделяем память под массив- надо запомнить, имя массива (array), тип массива int, размер массива size
+// int[] CreateRandomArray(int size, int minValue, int maxValue) // метод создает рандомный массив , размер массива, максимальное значение и минимальное
+// {
+//     int[] array = new int[size]; // выделяем память под массив- надо запомнить, имя массива (array), тип массива int, размер массива size
 
 
-    for(int i = 0; i < size; i++) //  при работе с массивом, это всегда цикл, i- индекс
-        array[i] = new Random().Next(minValue, maxValue + 1);
+//     for(int i = 0; i < size; i++) //  при работе с массивом, это всегда цикл, i- индекс
+//         array[i] = new Random().Next(minValue, maxValue + 1);
 
-    return array; // возвращаем массив, пишем только его имя!
-} 
-int EvenCount(int[] array)
-{
-    int count = 0;
-    for(int i = 0; i < array.Length; i++)
-    {
-        if(array[i] % 2 == 0)
-        {
-            count++;
-        }
+//     return array; // возвращаем массив, пишем только его имя!
+// } 
+// int EvenCount(int[] array)
+// {
+//     int count = 0;
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         if(array[i] % 2 == 0)
+//         {
+//             count++;
+//         }
             
-    }
-    return count;
-}
-Console.WriteLine("input a numbers of elements: ");
-int size = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Input a min possible value:"); 
-int min = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Input a max possible value:");
-int max = Convert.ToInt32(Console.ReadLine());
-int[] myArray = CreateRandomArray(size, 100, 999);
-ShowArray(myArray);
-Console.WriteLine(EvenCount(myArray));
+//     }
+//     return count;
+// }
+// Console.WriteLine("input a numbers of elements: ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a min possible value:"); 
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a max possible value:");
+// int max = Convert.ToInt32(Console.ReadLine());
+// int[] myArray = CreateRandomArray(size, 100, 999);
+// ShowArray(myArray);
+// Console.WriteLine(EvenCount(myArray));
 
 // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
 
@@ -349,6 +350,77 @@ Console.WriteLine(EvenCount(myArray));
 
 // [-4, -6, 89, 6] -> 0
 
+// int SumOddElements(int[] array)
+// {
+//     int sum = 0;
+//     for(int i = 0; i < array.Length; i++)
+//         if (i % 2 != 0)
+//         {
+//             sum += array[i];
+//         }
+//     return sum;    
+// }
+// Console.WriteLine("Input a numbers of elements: ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a min possible value:"); 
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a max possible value:");
+// int max = Convert.ToInt32(Console.ReadLine());
+// int[] myArray = CreateRandomArray(size, min, max);
+// ShowArray(myArray);
+// Console.WriteLine(SumOddElements(myArray));
+
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 
 // [3 7 22 2 78] -> 76
+//NextDouble , MathRound
+double[] CreateRandomDoubleArray(int size, int minValue, int maxValue ) // метод создает рандомный массив , размер массива, максимальное значение и минимальное
+{
+    double[] array = new double[size]; // выделяем память под массив- надо запомнить, имя массива (array), тип массива int, размер массива size
+
+    for(int i = 0; i < size; i++) //  при работе с массивом, это всегда цикл, i- индекс
+        array[i] = new Random().Next(minValue, maxValue + 1) + new Random().NextDouble();
+
+    return array; // возвращаем массив, пишем только его имя!
+}
+ void ShowArray(double[] array) // войтовский метод будем вызывать массив
+ {
+    Console.Write("Array is: "); // красивая финтифлюшка для вывода массива
+    
+    for (int i =0; i < array.Length; i++) // обращаемся к длине массива
+        Console.Write(array[i] + " ");
+
+    Console.WriteLine("  \n"); 
+ }    
+double DifferentMaxMinArray(double[] array)
+{
+    double dif = 0;
+    double min= array[0];
+    double max = array[0];
+    for (int i = 0; i< array.Length; i++)
+    {
+        if (array[i]< array[0])
+        {
+            min = array[i];
+        }
+        if (array[i] > array[0])
+        {
+            max = array[i];
+        }
+        dif = max - min;
+
+        dif = Math.Round((dif),2);
+        
+    }
+    return dif;
+        
+}
+Console.WriteLine("Input a numbers of elements: ");
+int size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input a min possible value:"); 
+int min = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input a max possible value:");
+int max = Convert.ToInt32(Console.ReadLine());
+double[] myArray = CreateRandomDoubleArray(size, min, max);
+ShowArray(myArray);
+Console.WriteLine(DifferentMaxMinArray(myArray));
